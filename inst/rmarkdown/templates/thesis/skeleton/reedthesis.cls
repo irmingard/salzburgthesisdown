@@ -197,14 +197,12 @@
 \def\@degree{\@latex@warning@no@line{No \noexpand\degree given}}
 \def\institution#1{\gdef \@institution{#1}}
 \def\@institution{\@latex@warning@no@line{No \noexpand\institution given}}
-\def\division#1{\gdef \@division{#1}}
-\def\@division{\@latex@warning@no@line{No \noexpand\division given}}
 \def\department#1{\gdef \@department{#1}}
 \def\@department{\@latex@warning@no@line{No \noexpand\department given}}
-\def\thedivisionof#1{\gdef \@thedivisionof{#1}}
-\def\@thedivisionof{The Division of}
+\def\thedep#1{\gdef \@thedep{#1}}
+\def\@thedep{The}
 \def\approvedforthe#1{\gdef \@approvedforthe{#1}}
-\def\@approvedforthe{Division}
+\def\@approvedforthe{}
 \def\advisor#1{\gdef \@advisor{#1}}
 \def\@advisor{\@latex@warning@no@line{No \noexpand\advisor given}}
 \def\altadvisor#1{\gdef \@altadvisor{#1} \@altadvisortrue}
@@ -262,15 +260,16 @@
   \fontsize{12}{14}\selectfont
 }{\clearpage \if@restonecol\twocolumn\fi}%
 
-\newenvironment{dedication}{%
-  \if@twocolumn
-    \@restonecoltrue\onecolumn
-  \else
-    \@restonecolfalse
-  \fi
-  \chapter*{Dedication}
-  \fontsize{12}{14}\selectfont
-}{\clearpage \if@restonecol\twocolumn\fi}%
+%%% commented out dedication, Veronika Priesner
+%\newenvironment{dedication}{%
+%  \if@twocolumn
+%    \@restonecoltrue\onecolumn
+%  \else
+%    \@restonecolfalse
+%  \fi
+%  \chapter*{Dedication}
+%  \fontsize{12}{14}\selectfont
+%}{\clearpage \if@restonecol\twocolumn\fi}%
 
 
 \ifx\@pdfoutput\@undefined
@@ -299,20 +298,26 @@
   \begin{center}
     \setcounter{page}{1}
     \null\vfil
-    {\fontsize{12}{14}\selectfont \@title}
+    {\fontsize{20}{22}\selectfont \@title}
     \vfil
     \centerline{\hbox to \wd0 {\hbox{}\hrulefill\hbox{}}}
     \vfil
-    A Thesis \\
+    A Master's thesis \\
     Presented to \\
-    \@thedivisionof \ \@division \\
+    \@thedep \ \@department \\
     \@institution
-    \vfil
-    \centerline{\hbox to \wd0 {\hbox{}\hrulefill\hbox{}}}
-    \vfil
-    In Partial Fulfillment \\
+
+	\vfil
+
+    In Partial Fulfilment \\
     of the Requirements for the Degree \\
     \@degree
+
+	\vfil
+
+	Reviewed by \\
+	\@advisor
+
     \vfil
     \centerline{\hbox to \wd0 {\hbox{}\hrulefill\hbox{}}}
     \bigskip
@@ -320,29 +325,14 @@
     \bigskip
     {\fontsize{12}{14}\selectfont \lineskip .75em
     \begin{tabular}[t]{c}%
+	Submitted by \\
       \@author
     \end{tabular}\par}
     \vskip 1.5em
-    {\fontsize{12}{14}\selectfont \@date \par}
+    {\fontsize{12}{14}\selectfont Salzburg, \@date \par}
   \end{center}\par
   \end{titlepage}
 
-%% Approved for the division page
-  \cleardoublepage
-  {\fontsize{12}{14}
-  \setbox0=\hbox{Approved for the \@approvedforthe}
-  \thispagestyle{empty}
-  \null\vfil		% just below center of page
-  \par\vskip 6cm	% below center, not center
-  \centerline{\copy0}	% approved
-  \centerline{(\@department)} %major
-  \vskip 1cm		%space to sign
-  \centerline{\makebox[\wd0][c]{\hrulefill}
-	\if@altadvisor \makebox[.5in]{} \makebox[\wd0][c]{\hrulefill} \fi}
-  \centerline{\makebox[\wd0][c]{\@advisor}
-	\if@altadvisor \makebox[.5in]{} \makebox[\wd0][c]{\@altadvisor} \fi}
-  \par\vfil\null}
-  \cleardoublepage
   }
 }
 
@@ -355,6 +345,6 @@
 %\newcommand{\Keywords}[1]{\def\@Keywords{#1}}
 %\newcommand{\Plainkeywords}[1]{\def\@Plainkeywords{#1}}
 \newcommand{\Acknowledgements}[1]{\def\@Acknowledgements{#1}}
-\newcommand{\Dedication}[1]{\def\@Dedication{#1}}
+%\newcommand{\Dedication}[1]{\def\@Dedication{#1}}
 \newcommand{\Preface}[1]{\def\@Preface{#1}}
 % End of CII add

@@ -1,14 +1,14 @@
 ---
 author: 'Your R. Name'
-date: 'May 20xx'
+date: "`r format(Sys.time(), '%B %Y')`"
 institution: 'University of Salzburg'
-division: 'Mathematics and Natural Sciences'
 advisor: 'Advisor F. Name'
 #altadvisor: 'Your Other Advisor'
 # Delete line 6 if you only have one advisor
-department: 'Mathematics'
-degree: 'Bachelor of Arts'
-title: 'My Final College Paper'
+department: 'Interfaculty Department of Geoinformatics - Z_GIS'
+degree: 'Master of Science'
+title: 'My Thesis Title'
+
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
 output: 
@@ -23,8 +23,6 @@ abstract: |
 # needed on the line after the |.
 acknowledgements: |
   I want to thank a few people.
-dedication: |
-  You can have a dedication here if you wish. 
 preface: |
   This is an example of a thesis setup to use the reed thesis document class
   (for LaTeX) and the R bookdown package, in general.
